@@ -1,4 +1,4 @@
-## Prueba técnicaCodeigniter
+## Prueba técnica Codeigniter
 
 Este proyecto esta diseñado para verificar los conocimientos adquiridos en las siguientes tecnologías:
 
@@ -15,7 +15,7 @@ Este proyecto esta diseñado para verificar los conocimientos adquiridos en las 
 
 ## Descripción de la prueba
 
-Se va a diseñar un sistema para administración de libros en una biblioteca. Esta debe contar con apartados para agregar UNICAMENTE libros y autores. Un autor debe tener multiples libros, así como un libro debe tener multiples autores. Un autor necesita crearse en el sistema sin poseer libros, pero un libro debe tener al menos un autor para ser creado. Los libros, así como los autores, deben mostrarse en una tabla (una tabla para libros y otra para autores) la cual contará con botones para ver detalles del libro, editarlo o eliminarlo. Los autores contaran con la misma característica, con la diferencia de que estos no pueden ser eliminados de la db, sino ocultos a las peticiones de autores explicitamente (soft deletes) (Si un libro tiene un autor en la lista que ha sido "eliminado", este aun se debe mostrar). Las informaciones de los libros y autores pueden mostrarse de la manera que considere. En el siguiente apendice se mencionaran los datos a guardar en la db :
+Se va a diseñar un sistema para administración de libros en una biblioteca. Esta debe contar con apartados para agregar UNICAMENTE libros y autores. Un autor debe tener multiples libros, así como un libro debe tener multiples autores. Un autor necesita crearse en el sistema sin poseer libros, pero un libro debe tener al menos un autor para ser creado. Los libros, así como los autores, deben mostrarse en una tabla (una tabla para libros y otra para autores) la cual contará con botones para ver detalles del libro, editarlo o eliminarlo. Los autores contaran con la misma característica, con la diferencia de que estos no pueden ser eliminados de la db, sino ocultos a las peticiones de autores explicitamente (soft deletes) (Si un libro tiene un autor en la lista que ha sido "eliminado", este aún se debe mostrar). Las informaciones de los libros y autores pueden mostrarse de la manera que considere. En el siguiente apendice se mencionaran los datos a guardar en la db :
 
 ### Datos de los autores
 
