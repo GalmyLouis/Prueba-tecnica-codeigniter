@@ -8,7 +8,7 @@ class Author extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'authors';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'author_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
