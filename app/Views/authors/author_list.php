@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Title</title>
-</head>
-<body>
+
+<?php echo($header)?>
+
+<a href="<?php echo(base_url('author_new'))?>"> Crear author</a>
+
     
-</body>
-</html>
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Firstname</th>
+                    <th>lastname</th>
+                    <th>Country</th>
+                    <th>Cantidad de libros</th>
+                    <th>--</th>
+                </tr>   
+            </thead>    
+            <tbody> 
+            <?php foreach($data as $keys): ?>
+                <tr>
+                    <td><?php echo $keys->id?></td>
+                    <td><?php echo $keys->author_fst_name ?></td>
+                    <td><?php echo $keys->author_lst_name?></td>
+                    <td><?php echo $keys->country ?></td>
+                    <td><?php echo $keys->book_number?></td>
+                    <td>Editar/
+                     <a href="<?php echo Base_url("deletes/").$keys->id;?>"  class="btn btn-danger " > Borrar </a>   
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+<?php echo($footer)?>

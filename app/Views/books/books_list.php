@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-</head>
-<body>
-    lista de los libros
 
+
+<?php echo($header)?>
+
+<?php print_r($libros)?>
     <div class="container">
         <table class="table table-dark">
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Fecha de publicacion</th>
                     <th>Edicion</th>
                     <th>Autor</th>
+                    <th>Fecha de publicacion</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($libros as $libro): ?>
                 <tr>
-                    <td>ID</td>
-                    <td>ID</td>
-                    <td>ID</td>
-                    <td>ID</td>
+                    <td><? echo ($libro['book_id']); ?> </td>
+                    <td><? echo($libro['book_name']); ?> </td>
+                    <td><? echo($libro['edition']); ?> </td>
+                    <td><? echo($libro['author_id']); ?> </td>
+                    <td><? echo($libro['publication_date']); ?></td>
+                    <td>Editar/Borrar</td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
-</body>
-</html>
+
+ <?php echo($footer)?>

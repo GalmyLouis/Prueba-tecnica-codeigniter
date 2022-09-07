@@ -53,3 +53,7 @@ $routes->get('/', 'Home::index');
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+$routes->get('Book_list', 'BookController::index');
+$routes->get('author_list', 'AuthorController::index');
+$routes->get('author_new', 'AuthorController::create');
+$routes->post('save_data', 'AuthorController::save');

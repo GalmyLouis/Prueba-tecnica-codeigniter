@@ -8,16 +8,16 @@ class Author extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'authors';
-    protected $primaryKey       = 'author_id';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['fst_name','lst_name','country','regist_date','book_count'];
+    protected $allowedFields    = ['author_fst_name','author_lst_name','country','book_number'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -39,4 +39,12 @@ class Author extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function author_list()
+    {
+        $data = $this->db->query("Select * FROM authors");
+        return $data->getResult();
+    }
+
 }

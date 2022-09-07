@@ -8,8 +8,9 @@ class Books extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
-        
+       
+        // 'book_id', 'book_name','edition','publication_date','author_id'
+       
         $this->forge->addField([
             'book_id' => [
                 'type'           => 'INT',
@@ -52,11 +53,13 @@ class Books extends Migration
         $this->forge->addKey('book_id', true);
         $this->forge->addForeignKey('author_id', 'authors', 'id', 'CASCADE', 'SET NULL');
         $this->forge->createTable('books');
-        $this->db->enableForeignKeyChecks();
+   
     }
 
     public function down()
     {
-        $this->forge->dropTable('books');
+             $this->db->disableForeignKeyChecks();
+             $this->forge->dropTable('books');
+            $this->db->enableForeignKeyChecks();
     }
 }
