@@ -56,7 +56,7 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 //All Books routes 
 $routes->get('book_list', 'BookController::index');
 $routes->get('book_new', 'BookController::create');
-
+$routes->post('save_book_data', 'BookController::save');
 
 //All author Routes 
 $routes->get('author_list', 'AuthorController::index');

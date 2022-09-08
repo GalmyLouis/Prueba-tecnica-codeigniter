@@ -11,8 +11,7 @@
                     <th>Firstname</th>
                     <th>lastname</th>
                     <th>Country</th>
-                    <th>Cantidad de libros</th>
-                    <th>--</th>
+                    <th>-------</th>
                 </tr>   
             </thead>    
             <tbody> 
@@ -22,7 +21,6 @@
                     <td><?php echo $keys->author_fst_name ?></td>
                     <td><?php echo $keys->author_lst_name?></td>
                     <td><?php echo $keys->country ?></td>
-                    <td><?php echo $keys->book_number?></td>
                     <td>Editar/
                      <a href="<?php echo Base_url("delete/").$keys->id;?>"  class="btn btn-danger " > Borrar </a>   
                     </td>

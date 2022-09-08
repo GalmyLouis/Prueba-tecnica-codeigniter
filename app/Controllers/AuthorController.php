@@ -42,8 +42,8 @@ class AuthorController extends BaseController
             'author_lst_name'=> $this->request->getVar('lst_name'),
             'country'=>$this->request->getVar('country')
         ];
-        print_r($data);
-        $author->insert($data);
+        print_r($_POST);
+        // $author->insert($data);
 
         echo("Datos ingresado correctamente");
     }
