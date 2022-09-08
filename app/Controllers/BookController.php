@@ -43,19 +43,18 @@ class BookController extends BaseController
     }
     public function save()
     {
-        $book = new book();
+        $book = new Book();
 
         $data=[
           
-            'book_name'=> $this->request->getVar('name'),
-            'edition'=> $this->request->getVar('edition'),
-            'authors_id'=>$this->request->getVar('author_id')
+            'book_name'=> $this->request->getPost('name'),
+            'edition'=> $this->request->getPost('edition'),
+            'authors_id'=>$this->request->getPost('author_id'),
+            'publication_date'=>$this->request->getPost('publication_date')
         ];
         // print_r($_POST['author_id']);
-        print_r($data);
-        // $author->insert($data);
-
-        // echo("Datos ingresado correctamente");
+        //  print_r($data);
+         $book->insert($data);
     }
     
 }

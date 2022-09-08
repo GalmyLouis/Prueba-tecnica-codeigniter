@@ -10,4 +10,22 @@
 <body>
 <div class="container">
 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand">Biblioteca</a>
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url("/book_list")?>">Libros </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="<?php echo base_url("/author_list")?>">Autores</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
      

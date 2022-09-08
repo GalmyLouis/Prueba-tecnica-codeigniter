@@ -15,7 +15,7 @@ class Book extends Model
     protected $returnType       = 'array';
     // protected $useSoftDeletes   = false;
     // protected $protectFields    = true;
-    protected $allowedFields    = ['book_name','edition','publication_date'];
+    protected $allowedFields    = ['book_name','edition','author_id','publication_date'];
 
     // Dates
     protected $useTimestamps = false;
@@ -47,4 +47,5 @@ class Book extends Model
         $data = $this->db->query("Select * FROM books");
         return $data->getResult();
     }
+    
 }

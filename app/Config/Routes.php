@@ -57,9 +57,11 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 $routes->get('book_list', 'BookController::index');
 $routes->get('book_new', 'BookController::create');
 $routes->post('save_book_data', 'BookController::save');
+$routes->get('edit_book', 'BookController::edit');
 
 //All author Routes 
 $routes->get('author_list', 'AuthorController::index');
 $routes->get('author_new', 'AuthorController::create');
 $routes->post('save_data', 'AuthorController::save');
 $routes->get('delete/(:any)', 'AuthorController::delete/$1');
+;$routes->get('edit_author', 'AuthorController::edit');

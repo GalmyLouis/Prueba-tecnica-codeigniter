@@ -28,9 +28,13 @@
                         <label for="my-input">Pais</label>
                         <input id="country" class="form-control" type="text" name="country">
                     </div>
+                    <div class="form-group col-md-2">
+                        <label for="">Cantidad de libro</label>
+                        <input type="text" class="form-control" name="book_count" id="book_cout">
+                    </div>
 
                     <button class="btn btn-success" type="submit">Guardar</button>
-
+                    <a href="<?php echo base_url("/author_list")?>" class="btn btn-info">cancelar</a>
                    
                 </form>
 
