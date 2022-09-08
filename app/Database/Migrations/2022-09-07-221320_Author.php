@@ -4,62 +4,57 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Books extends Migration
+class Author extends Migration
 {
+// Author table
+
     public function up()
     {
-       
-        // 'book_id', 'book_name','edition','publication_date','author_id'
-       
         $this->forge->addField([
-            'book_id' => [
+            'id' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
                 'null'           => false,
             ],
-            'book_name' => [
+            'author_fst_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
                 'null'       => false,
             ],
-            'edition' => [
+            'author_lst_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
                 'null'       => false,
             ],
-            'publication_date' => [
-                'type' => 'datetime',
-                'null' => false,
+            'country' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+                'null'       => false,
             ],
-            'author_id' => [
+            'book_number' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
-                'auto_increment' => true,
-                'null'           => false,
+                'null'           => true,
             ],
-          
             'created_at' => [
                 'type' => 'datetime',
-                'null' => true,
+                'null' => false,
             ],
             'updated_at' => [
                 'type' => 'datetime',
                 'null' => true,
             ],
         ]);
-        $this->forge->addKey('book_id', true);
-        $this->forge->addForeignKey('author_id', 'authors', 'id', 'CASCADE', 'SET NULL');
-        $this->forge->createTable('books');
-   
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('authors');
     }
 
     public function down()
     {
-             $this->db->disableForeignKeyChecks();
-             $this->forge->dropTable('books');
-            $this->db->enableForeignKeyChecks();
+        $this->forge->dropTable('authors');
     }
+
 }

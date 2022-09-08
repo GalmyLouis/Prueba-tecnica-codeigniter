@@ -53,7 +53,13 @@ $routes->get('/', 'Home::index');
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-$routes->get('Book_list', 'BookController::index');
+//All Books routes 
+$routes->get('book_list', 'BookController::index');
+$routes->get('book_new', 'BookController::create');
+
+
+//All author Routes 
 $routes->get('author_list', 'AuthorController::index');
 $routes->get('author_new', 'AuthorController::create');
 $routes->post('save_data', 'AuthorController::save');
+$routes->get('delete/(:any)', 'AuthorController::delete/$1');

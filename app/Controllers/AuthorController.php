@@ -44,6 +44,8 @@ class AuthorController extends BaseController
         ];
         print_r($data);
         $author->insert($data);
+
+        echo("Datos ingresado correctamente");
     }
     
 }

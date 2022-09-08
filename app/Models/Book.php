@@ -40,4 +40,11 @@ class Book extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function book_list()
+    {
+        $data = $this->db->query("Select * FROM books");
+        return $data->getResult();
+    }
 }

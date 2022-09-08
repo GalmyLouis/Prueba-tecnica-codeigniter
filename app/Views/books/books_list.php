@@ -2,7 +2,9 @@
 
 <?php echo($header)?>
 
-<?php print_r($libros)?>
+<a href="<?php echo(base_url('book_new'))?>"> Crear Nuevo Libro</a>
+
+
     <div class="container">
         <table class="table table-dark">
             <thead class="thead-dark">
@@ -15,14 +17,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($libros as $libro): ?>
+                <?php foreach($data as $keys): ?>
                 <tr>
-                    <td><? echo ($libro['book_id']); ?> </td>
-                    <td><? echo($libro['book_name']); ?> </td>
-                    <td><? echo($libro['edition']); ?> </td>
-                    <td><? echo($libro['author_id']); ?> </td>
-                    <td><? echo($libro['publication_date']); ?></td>
-                    <td>Editar/Borrar</td>
+                    <td><?php echo $keys->Id?> </td>
+                    <td><?php echo $keys->book_name ?> </td>
+                    <td><?php echo $keys->edition  ?> </td>
+                    <td><?php echo $keys->authors_id ?> </td>
+                    <td><?php echo $keys->publication_date ?></td>
+                    <td>
+                        Editar/ <a href="<?php echo Base_url("delete/").$keys->Id;?>"  class="btn btn-danger " > Borrar </a> 
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

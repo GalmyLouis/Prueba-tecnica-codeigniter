@@ -24,7 +24,7 @@
                     <td><?php echo $keys->country ?></td>
                     <td><?php echo $keys->book_number?></td>
                     <td>Editar/
-                     <a href="<?php echo Base_url("deletes/").$keys->id;?>"  class="btn btn-danger " > Borrar </a>   
+                     <a href="<?php echo Base_url("delete/").$keys->id;?>"  class="btn btn-danger " > Borrar </a>   
                     </td>
                 </tr>
                 <?php endforeach; ?>
