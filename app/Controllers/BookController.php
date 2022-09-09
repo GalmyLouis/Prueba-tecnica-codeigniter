@@ -43,7 +43,10 @@ class BookController extends BaseController
     }
     public function save()
     {
-        $book = new Book();
+        
+        // $book = new Book();  //no me funcionaba tuve que usar query builder
+        $db      = \Config\Database::connect();
+        $builder = $db->table('books');
 
         $data=[
           
@@ -53,8 +56,8 @@ class BookController extends BaseController
             'publication_date'=>$this->request->getPost('publication_date')
         ];
         // print_r($_POST['author_id']);
-        //  print_r($data);
-         $book->insert($data);
+         print_r($data);
+         $builder->insert($data);
     }
     
 }
