@@ -18,14 +18,14 @@
             <tbody>
                 <?php foreach($data as $keys): ?>
                 <tr>
-                    <td><?php echo $keys->Id?> </td>
-                    <td><?php echo $keys->book_name ?> </td>
-                    <td><?php echo $keys->edition  ?> </td>
-                    <td><?php echo $keys->publication_date ?></td>
+                    <td><?php echo $keys['Id']?> </td>
+                    <td><?php echo $keys['book_name'] ?> </td>
+                    <td><?php echo $keys['edition']  ?> </td>
+                    <td><?php echo $keys['publication_date'] ?></td>
                     <td>
-                    <a href="<?php echo Base_url("edit_book/$keys->Id")?>"  class="btn btn-warning btn-sm"> Editar</a> ---
-                    <a href="<?php echo Base_url("delete_book/$keys->Id")?>"  class="btn btn-danger btn-sm " > Borrar </a> ---
-                    <a href="<?php echo Base_url("/book_details/$keys->Id")?>"  class="btn btn-success btn-sm"> Detalles del libro</a>
+                    <a href="<?php echo Base_url('edit_book/'.$keys['Id'])?>"  class="btn btn-warning btn-sm"> Editar</a> ---
+                    <a href="<?php echo Base_url('delete_book/'.$keys['Id'])?>"  class="btn btn-danger btn-sm " > Borrar </a> ---
+                    <a href="<?php echo Base_url('/book_details/'.$keys['Id'])?>"  class="btn btn-success btn-sm"> Detalles del libro</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

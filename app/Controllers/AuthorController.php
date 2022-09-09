@@ -16,12 +16,12 @@ class AuthorController extends BaseController
        
         $author = new Author();
 
-        // $data['authors'] =  $author->orderBy('id','ASC')->findAll();
-        $query=  $author->author_list();
+        $data =  $author->orderBy('id','ASC')->findAll();
+        // $query=  $author->author_list();
 
         $data=
         [
-            "data" =>$query
+            "data" =>$data
         ];
     
         $data['header']=view('templates/header');
@@ -97,13 +97,12 @@ class AuthorController extends BaseController
 
         //  print_r("borrar datos".$id);
         $author = new Author();
-         $data['author']=$author->find('id',$id);
 
-        print_r($data);
+        $author->delete($id);
 
-        // $author->where('id',$id)->delete($id);
+         
 
-    //  return $this->response->redirect(base_url('/author_list'));
+     return $this->response->redirect(base_url('/author_list'));
 
     }
 

@@ -9,9 +9,11 @@ class BookController extends BaseController
 {
     public function index()
     {
+        
         $book = new Book();
-        // $data['books'] =  $book->orderBy('id','ASC')->findAll();
-        $data=$book->book_list();
+        // $users = $userModel->findAll();
+        $data =  $book->orderBy('id','ASC')->findAll();
+        // $data=$book->book_list();
         $data=
         [
             "data" =>$data
@@ -126,6 +128,7 @@ class BookController extends BaseController
         $builder = $db->table('books')->getwhere(['id'=> $id]);
         
         $data['book'] =$builder->getRow();
+        // print_r($data)
 
         $data['header']=view('templates/header');
         $data['footer']=view('templates/footer');
