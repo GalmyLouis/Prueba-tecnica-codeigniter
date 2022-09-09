@@ -1,9 +1,17 @@
 <?php echo($header)?>
 
-
+<?php if (session('Message')){?>
+<div class="alert alert-danger" role="alert">
+    <?php
+     print_r(session('Message'));
+    ?>
+</div>
+<?php
+}
+?>
 
      Formulario de Crear Author
-
+<!--  -->
 
      <div class="card">
         <div class="card-body">

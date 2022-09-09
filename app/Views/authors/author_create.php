@@ -2,6 +2,15 @@
 
 
 
+<?php if (session('Message')){?>
+<div class="alert alert-danger" role="alert">
+    <?php
+    echo session('Message');
+    ?>
+</div>
+<?php
+}
+?>
      Formulario de Crear Author
 
 

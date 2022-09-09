@@ -4,6 +4,8 @@ namespace App\Controllers;
 use App\Models\Book;
 use App\Models\Author;
 use App\Controllers\BaseController;
+use CodeIgniter\Validation\Rules;
+use Config\Services;
 
 class BookController extends BaseController
 {
@@ -45,10 +47,32 @@ class BookController extends BaseController
     }
     public function save()
     {
-        
+    
         // $book = new Book();  //no me funcionaba tuve que usar query builder
         $db      = \Config\Database::connect();
         $builder = $db->table('books');
+        
+        
+        //validation
+        $validation= \Config\Services::validation();
+        $check=$this->validate([
+            'name'=>'required',
+            'edition'=>'required',
+            'publication_date'=>'required',
+
+
+        ]);
+
+        
+        if(!$check)
+        {
+            $session = \Config\Services::session(); 
+            $session->getFlashdata('Message','Por favor Revisa');
+            return redirect()->back()->withInput();
+            // return $this->response->redirect(base_url('/book_new'));
+        }
+
+
 
         $data=[
           
@@ -94,6 +118,26 @@ class BookController extends BaseController
     {
         //no me funcionaba tuve que usar query builder
         $book = new Book();
+
+
+         //validation
+         $validation= \Config\Services::validation();
+         $check=$this->validate([
+             'name'=>'required',
+             'edition'=>'required',
+             'publication_date'=>'required',
+ 
+ 
+         ]);
+ 
+         if(!$check)
+         {
+          
+             return $this->response->redirect(base_url('/book_new'));
+         }
+
+
+
 
         $data=
         [

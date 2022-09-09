@@ -41,6 +41,26 @@ class AuthorController extends BaseController
     public function save()
     {
         $author = new Author();
+
+         //validation
+         $validation= \Config\Services::validation();
+         $check = $this->validate([
+            'fst_name'=>'required',
+            'lst_name'=>'required',
+            'country'=>'required',
+            'book_number'=>'required'
+ 
+            ]);
+ 
+         
+            if(!$check)
+            {
+            $session = $session = \Config\Services::session($config);
+            $session->getFlashdata('Message','Por favor Revisa');
+            return redirect()->back()->withInput();
+            //  return $this->response->redirect(base_url('/author_new'));
+            }
+        
         $data=[
           
             'author_fst_name'=> $this->request->getVar('fst_name'),
@@ -48,11 +68,10 @@ class AuthorController extends BaseController
             'country'=>$this->request->getVar('country'),
             'book_number'=>$this->request->getVar('book_count')
         ];
-        // print_r($_POST);
-        // print_r($data);
+       
         $author->insert($data);
 
-        echo("Datos ingresado correctamente");
+        return $this->response->redirect(base_url('/author_list'));
     }
 
     public function edit($id=null)
@@ -63,9 +82,7 @@ class AuthorController extends BaseController
         $builder = $db->table('authors')->getwhere(['id'=> $id]);
         
         $data['author'] =$builder->getRow();
-        // $data['author'] = $data;
-        // $data['author']=$data;
-        //  print_r($data);
+       
 
         $data['header']=view('templates/header');
         $data['footer']=view('templates/footer');
@@ -77,6 +94,24 @@ class AuthorController extends BaseController
     public function update()
     {
         $author = new Author();
+
+        //validation
+        $validation= \Config\Services::validation();
+        $check=$this->validate([
+           'fst_name'=>'required',
+           'lst_name'=>'required',
+           'country'=>'required',
+           'book_number'=>'required'
+
+           ]);
+
+        
+           if(!$check)
+           {
+         
+            return $this->response->redirect(base_url('/author_new'));
+            }
+        
         $data=[
           
             'author_fst_name'=> $this->request->getVar('fst_name'),
@@ -89,7 +124,7 @@ class AuthorController extends BaseController
 
         $author->update($id,$data);
 
-        echo("Datos Modificado  correctamente");
+        return $this->response->redirect(base_url('/author_list'));
     }
         
     public function delete($id=null)
