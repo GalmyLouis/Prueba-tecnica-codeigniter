@@ -60,6 +60,7 @@ $routes->post('save_book_data', 'BookController::save');
 $routes->get('edit_book/(:any)', 'BookController::edit_book/$1');
 $routes->post('update_book_data', 'BookController::update');
 $routes->get('delete_book/(:any)', 'BookController::delete/$1');
+$routes->get('book_details/(:any)', 'BookController::details/$1');
 
 //All author Routes 
 $routes->get('author_list', 'AuthorController::index');
@@ -67,4 +68,5 @@ $routes->get('author_new', 'AuthorController::create');
 $routes->post('save_data', 'AuthorController::save');
 $routes->post('update_data', 'AuthorController::update');
 $routes->get('delete/(:any)', 'AuthorController::delete/$1');
-;$routes->get('edit_author/(:any)', 'AuthorController::edit/$1');
+$routes->get('edit_author/(:any)', 'AuthorController::edit/$1');
+$routes->get('author_details/(:any)', 'AuthorController::details/$1');

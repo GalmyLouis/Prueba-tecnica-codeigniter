@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 use App\Models\Author;
+use App\Models\Book;
 use App\Controllers\BaseController;
-use CodeIgniter\HTTP\Request;
+
 
 class AuthorController extends BaseController
 {
@@ -56,7 +57,7 @@ class AuthorController extends BaseController
 
     public function edit($id=null)
     {
-        $author = new Author();
+        // $author = new Author();
 
         $db      = \Config\Database::connect();
         $builder = $db->table('authors')->getwhere(['id'=> $id]);
@@ -90,5 +91,32 @@ class AuthorController extends BaseController
 
         echo("Datos Modificado  correctamente");
     }
-         
+        
+    public function delete($id=null)
+    {
+
+        //  print_r("borrar datos".$id);
+        $author = new Author();
+         $data['author']=$author->find('id',$id);
+
+        print_r($data);
+
+        // $author->where('id',$id)->delete($id);
+
+    //  return $this->response->redirect(base_url('/author_list'));
+
+    }
+
+    public function details($id=null)
+    {
+       $db      = \Config\Database::connect();
+       $builder = $db->table('authors')->getwhere(['id'=> $id]);
+       
+       $data['author'] =$builder->getRow();
+
+       $data['header']=view('templates/header');
+       $data['footer']=view('templates/footer');
+
+       return view('authors/author_details',$data);
+    }
 }

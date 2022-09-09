@@ -9,7 +9,7 @@ class BookController extends BaseController
 {
     public function index()
     {
-        $book = new book();
+        $book = new Book();
         // $data['books'] =  $book->orderBy('id','ASC')->findAll();
         $data=$book->book_list();
         $data=
@@ -91,7 +91,7 @@ class BookController extends BaseController
     public function update()
     {
         //no me funcionaba tuve que usar query builder
-        $book = new book();
+        $book = new Book();
 
         $data=
         [
@@ -110,17 +110,28 @@ class BookController extends BaseController
      public function delete($id=null)
      {
             // print_r("borrar datos".$id);
-            $book = new book();
+            $book = new Book();
             $data=$book->where('id',$id)->first();
 
-            print_r($data);
+            // print_r($data);
 
             $book->where('id',$id)->delete($id);
 
          return $this->response->redirect(base_url('/book_list'));
      }
 
+     public function details($id=null)
+     {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('books')->getwhere(['id'=> $id]);
+        
+        $data['book'] =$builder->getRow();
 
+        $data['header']=view('templates/header');
+        $data['footer']=view('templates/footer');
+
+        return view('books/book_details',$data);
+     }
 
 
 }

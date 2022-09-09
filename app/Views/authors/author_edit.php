@@ -1,8 +1,6 @@
 <?php echo($header)?><br/> 
 
 
-<?php print_r($author);?>
-
 
 
 <div class="card">
