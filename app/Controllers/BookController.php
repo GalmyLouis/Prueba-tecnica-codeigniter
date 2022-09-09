@@ -56,8 +56,11 @@ class BookController extends BaseController
             'publication_date'=>$this->request->getPost('publication_date')
         ];
         // print_r($_POST['author_id']);
-         print_r($data);
+        //  print_r($data);
          $builder->insert($data);
+        echo("Datos insertados  correctamente");
+
+        return $this->response->redirect(base_url('/book_list'));
     }
 
 
@@ -102,12 +105,19 @@ class BookController extends BaseController
         
             $book ->update($id,$data);
             echo("Datos Modificado  correctamente");
+            return $this->response->redirect(base_url('/book_list'));
     }
-     public function delete()
+     public function delete($id=null)
      {
+            // print_r("borrar datos".$id);
+            $book = new book();
+            $data=$book->where('id',$id)->first();
 
+            print_r($data);
 
-        
+            $book->where('id',$id)->delete($id);
+
+         return $this->response->redirect(base_url('/book_list'));
      }
 
 
