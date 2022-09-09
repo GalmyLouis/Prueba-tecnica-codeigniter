@@ -40,27 +40,26 @@ class AuthorController extends BaseController
 
     public function save()
     {
+       
         $author = new Author();
-
          //validation
-         $validation= \Config\Services::validation();
-         $check = $this->validate([
-            'fst_name'=>'required',
-            'lst_name'=>'required',
-            'country'=>'required',
-            'book_number'=>'required'
+        //  $validation= \Config\Services::validation();
+
+        //  $check = $this->validate([
+        //     'fst_name'=>'required',
+        //     'lst_name'=>'required',
+        //     'country'=>'required',
+        //     'book_number'=>'required'
  
-            ]);
+        //     ]);
  
          
-            if(!$check)
-            {
-            $session = $session = \Config\Services::session($config);
-            $session->getFlashdata('Message','Por favor Revisa');
-            return redirect()->back()->withInput();
-            //  return $this->response->redirect(base_url('/author_new'));
-            }
-        
+        //     if(!$check)
+        //     {
+            
+        //      return $this->response->redirect(base_url('/author_new'));
+        //     }
+            
         $data=[
           
             'author_fst_name'=> $this->request->getVar('fst_name'),
@@ -68,7 +67,8 @@ class AuthorController extends BaseController
             'country'=>$this->request->getVar('country'),
             'book_number'=>$this->request->getVar('book_count')
         ];
-       
+        
+        
         $author->insert($data);
 
         return $this->response->redirect(base_url('/author_list'));
@@ -96,21 +96,20 @@ class AuthorController extends BaseController
         $author = new Author();
 
         //validation
-        $validation= \Config\Services::validation();
-        $check=$this->validate([
-           'fst_name'=>'required',
-           'lst_name'=>'required',
-           'country'=>'required',
-           'book_number'=>'required'
+        // $validation= \Config\Services::validation();
+        // $check=$this->validate([
+        //    'fst_name'=>'required',
+        //    'lst_name'=>'required',
+        //    'country'=>'required',
+        //    'book_number'=>'required'
 
-           ]);
+        //    ]);
 
         
-           if(!$check)
-           {
-         
-            return $this->response->redirect(base_url('/author_new'));
-            }
+        //    if(!$check)
+        //    {
+        //     return $this->response->redirect(base_url('/author_new'));
+        //    }
         
         $data=[
           
