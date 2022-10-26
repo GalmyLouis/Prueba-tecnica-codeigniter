@@ -32,7 +32,7 @@ class BookController extends BaseController
     public function create()
     { 
         $author = new Author();
-        $query=  $author->author_list();
+        $query=  $author->orderBy('id','ASC')->findAll();
 
         $data=
         [
@@ -45,34 +45,13 @@ class BookController extends BaseController
         return view('books/books_create',$data);
 
     }
+ 
     public function save()
     {
     
-        // $book = new Book();  //no me funcionaba tuve que usar query builder
-        $db      = \Config\Database::connect();
-        $builder = $db->table('books');
+       $book = new Book();  
+        // $builder = $db->table('books');
         
-        
-        //validation
-        $validation= \Config\Services::validation();
-        $check=$this->validate([
-            'name'=>'required',
-            'edition'=>'required',
-            'publication_date'=>'required',
-
-
-        ]);
-
-        
-        if(!$check)
-        {
-            $session = \Config\Services::session(); 
-            $session->getFlashdata('Message','Por favor Revisa');
-            return redirect()->back()->withInput();
-            // return $this->response->redirect(base_url('/book_new'));
-        }
-
-
 
         $data=[
           
@@ -82,11 +61,12 @@ class BookController extends BaseController
             'publication_date'=>$this->request->getPost('publication_date')
         ];
         // print_r($_POST['author_id']);
-        //  print_r($data);
-         $builder->insert($data);
+        // 
+        $book->insert($data);
+        print_r($data);
         echo("Datos insertados  correctamente");
 
-        return $this->response->redirect(base_url('/book_list'));
+        // return $this->response->redirect(base_url('/book_list'));
     }
 
 
@@ -177,7 +157,7 @@ class BookController extends BaseController
         $data['header']=view('templates/header');
         $data['footer']=view('templates/footer');
 
-        return view('books/book_details',$data);
+        return view('books/books_details',$data);
      }
 
 

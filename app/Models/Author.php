@@ -41,10 +41,10 @@ class Author extends Model
     protected $afterDelete    = [];
 
 
-    public function author_list()
-    {
-        $data = $this->db->query("Select * FROM authors");
-        return $data->getResult();
-    }
+    // public function author_list()
+    // {
+    //     $data = $this->db->query("Select * FROM authors");
+    //     return $data->getResult();
+    // }
 
 }

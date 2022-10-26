@@ -5,14 +5,15 @@
 <br/>
 <br/>
 
-   
-        <table class="table table-dark col">
+<div class="container">
+    <div class="table-responsive">
+       <table class="table table-dark">
             <thead class="thead-dark">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Edicion</th>
-                    <th>Autor</th>
-                    <th>Fecha de publicacion</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edicion</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Fecha de publicacion</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,5 +30,9 @@
             
             </tbody>
         </table>
+    </div>
+</div>
+   
+      
 
  <?php echo($footer)?>
